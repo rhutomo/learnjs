@@ -1,3 +1,10 @@
+/**
+ * Given an integer array nums, find the contiguous subarray (containing at least one number) which has the largest sum and return its sum.
+ * @param {number} lower 
+ * @param {number} upper 
+ * @param {number[]} arr 
+ * @return {number}
+ */
 const sumOfRange = (lower, upper, arr) => {
     let sum = 0;
     for (let i=lower; i<=upper; i++) {

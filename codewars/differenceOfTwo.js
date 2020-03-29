@@ -29,7 +29,7 @@ const differenceOfTwo1 = arr => {
         }
     }
     // console.log(map)
-    // console.log(result)
+    console.log(result)
     return result
 }
 

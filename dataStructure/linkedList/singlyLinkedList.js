@@ -125,18 +125,62 @@ class LinkedList {
         this.length--
         return this
     }
+
+    /**
+     * // [80, 6, 10, 1, 11]
+     * first = {val: 80, next: 6, 10, 1, 11}
+     * second = {val: 6, next: 10, 1, 11}
+     * (circular = {6, 10, 1, 11})
+     * 1.
+     * temp = {val: 10, next: 1}
+     * second.next = {val: 80, next: 6}
+     * first = {val 6: next: 80, circular}
+     * second = {val 10: next: 1}
+     * 2.
+     * temp = {val: 1, next: 11}
+     * second.next = {val: 6, next: 80}
+     * first = {val: 10, next: 6, 80, circular}
+     * second = {val: 1, next: 11}
+     * 3.
+     * temp = {val: 11, next: null}
+     * second.next = {val: 10, next: 6}
+     * first = {val: 1, next: 10, 6, 80, circular}
+     * second = {val: 11, next: null}
+     * 4.
+     * temp = null
+     * second.next = {val:1, next: 10}
+     * first = {val: 11, next: 1, 10, 6, 80, circular}
+     * second = null
+     */
+    reverse() {
+        let first = this.head
+        this.tail = this.head
+        let second = first.next
+        while (second) {
+            let temp = second.next
+            second.next = first
+            first = second
+            second = temp
+            // console.log(first.next)
+            // console.log(second)
+        }
+        this.head.next = null
+        this.head = first
+    }
 }
 
 let linked = new LinkedList(10)
 linked.append(1)
 linked.append(11)
+linked.prepend(6)
 linked.prepend(80)
-linked.insert(1, 6)
-linked.insert(0, 2)
-linked.insert(99, 102)
-linked.insert(2, 55)
-linked.remove(0)
-linked.remove(1)
+// linked.insert(1, 6)
+// linked.insert(0, 2)
+// linked.insert(99, 102)
+// linked.insert(2, 55)
+// linked.remove(0)
+// linked.remove(1)
+linked.reverse()
 console.log(linked.extractToArray())
 // linked.remove(4)
 // linked.remove(3)

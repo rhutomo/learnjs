@@ -92,26 +92,20 @@ class Stack {
 class Stack1 {
     constructor() {
         this.array = []
-        this.length = 0
     }
 
     push(value) {
         this.array.push(value)
-        this.length++
         return this
     }
 
     pop() {
         this.array.pop()
-        if (this.length > 0) {
-            this.length--
-        }
         return this
     }
 
     peek() {
-        console.log(this.array)
-        return this.array[this.length-1]
+        return this.array[this.array.length-1]
     }
 
     isEmpty() {
@@ -119,23 +113,23 @@ class Stack1 {
     }
 }
 
-// const stack = new Stack1()
-// stack.push(1)
-// stack.push(3)
-// stack.push(10)
+const stack = new Stack1()
+stack.push(1)
+stack.push(3)
+stack.push(10)
 // console.log(stack.peek(), stack.size())
 // console.log(stack.printToArray())
-// stack.pop()
-// stack.pop()
-// stack.pop()
-// stack.push(100)
+stack.pop()
+stack.pop()
+stack.pop()
+stack.push(100)
 // console.log(stack.peek(), stack.size())
-// stack.pop()
-// stack.pop()
-// stack.pop()
-// stack.push("www.google.com")
-// stack.push("www.youtube.com")
-// stack.push("www.hackerrank.com")
+stack.pop()
+stack.pop()
+stack.pop()
+stack.push("www.google.com")
+stack.push("www.youtube.com")
+stack.push("www.hackerrank.com")
 // console.log(stack.peek())
-// console.log(stack)
+console.log(stack)
 // console.log(stack.printToArray())
